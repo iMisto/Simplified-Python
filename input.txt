@@ -1,0 +1,127 @@
+#------------------------------------------
+
+# Two major problems are:
+
+# Declaring two tuples after each other as so:
+
+#T = (1,2,3)
+#B= (4,5,6)
+#print(T[0])
+#print(B[0])
+
+# Messes up indexing due to implementation. The first tuple indexing works fine
+# The second tuple's actual values start at index 3, i.e, B[3] = 4
+# This is happening because the indexing hashmap is now: (0 = 1, 1 = 2, 2 = 3, 3 = 4, 4 = 5, 5 = 6)
+# One way to fix this would be to clear the hashmap after printing, but that wouldn't allow
+# for consecutive printing on the same tuple
+# I only noticed this quite late and wasn't able to find a fix without having to re-implement a lot of things
+# This problem affects indexing, slicing, and unpacking (As far as I've tested)
+
+# For this reason, when trying these inputs, please comment out the code in blocks (blocks seperated by lines), 
+# as commenting out everything and running it messes the output up due to the aforementioned.
+
+# Another problem is that when first starting, I disregarded tuples being inside tuples for simplicity 
+# thinking minor adjustments would allow for that
+# however once I had implemented everything disregarding tuples inside tuples
+# I couldn't figure out how to account for them
+
+
+#------------------------------------------
+
+#T=(23,35,'abc')
+#A=T[2]
+#print(A)                #'abc'
+
+#B=T[-2]                 
+#print(B)                #35
+
+#print(T[-2])            #35
+#print(T[5])             #Out of Bounds
+#print(T[-5])            #Out of Bounds   
+
+#-----------------------------------------
+
+#C = 25 + 5 + 3 + 4
+#D = 'abc' + 'b' +'cd'
+#A = 'bcd'
+
+#print(C)        #37
+#print(D)        #abcbcd
+#print(A)        #bcd
+
+#C = 5 + 2       #re-assign C
+#print(C)        #7
+
+#T = ()         #empty tuple
+#print(T)       #()
+
+#-----------------------------------------
+
+#T = ('abc','bcd',1)
+
+#print(T[-3:-1])        #'abc','bcd'
+#print(T[0:2])          #'abc','bcd'
+
+#A = T[-3:-1]
+#B = T[0:2]
+
+#print(A)               #'abc','bcd'
+#print(B)               #'abc','bcd'
+
+#-----------------------------------------
+#T = ('abc','bcd',1,2,3,5,6,7)
+
+#print(T[-8:8])
+
+#A = T[-8:9]
+#print(A)
+
+#A = T[0:4]
+#print(A)
+#print(T[0:4])
+
+#B = T[-3:-1]
+#print(B)
+#print(T[-3:-1])
+
+#print(T[-3:])
+
+#print(T[0:])
+
+#print(T[:5])
+
+#print(T[:-1])
+
+#print(T[0:])
+
+#A = T[0:]
+#print(A)
+#print(T[0:])
+
+#A = T[:-5]
+#print(A)
+
+#A = T[0:-1]
+#print(A)
+
+#-------------------------------------
+
+#T = (1,2,3,4,5,6)
+#(x,y,z,a,b,c) = T
+#print(x)
+#print(y)
+#print(z)
+#print(a)
+#print(b)
+#print(c)
+
+#-------------------------------------
+
+# The way I implemented tuple concatenation requires the tuples to be declared beforehand
+
+#A = (1,2,3)
+#B = (4,5,6)
+#D = ('abc','cd')
+#E = (1,2)
+#C = (1,2,3) + (4,5,6) + ('abc','cd') + (1,2)
+#print(C)
